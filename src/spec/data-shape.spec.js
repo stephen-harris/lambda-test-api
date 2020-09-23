@@ -1,9 +1,6 @@
 var chakram = require('chakram');
 expect = chakram.expect;
 
-var chakram = require('chakram');
-expect = chakram.expect;
-
 describe("Testing data shape", function() {
     var apiResponse;
 
