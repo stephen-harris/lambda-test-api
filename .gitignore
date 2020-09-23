@@ -1,1 +1,4 @@
 node_modules
+lambda.zip
+.terraform
+*terraform.tfstate*
