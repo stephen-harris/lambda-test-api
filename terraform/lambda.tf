@@ -1,5 +1,5 @@
 locals {
-    function_name = "smoke-tests"
+  function_name = "smoke-tests"
 }
 
 data "aws_caller_identity" "current" {}
@@ -87,10 +87,10 @@ resource "aws_cloudwatch_log_group" "lambda_cloudwatch_logs" {
 }
 
 resource "aws_iam_policy" "lambda_cloudwatch_logs" {
-  name = "SmokeTestAllowCloudWatchLogging"
+  name        = "SmokeTestAllowCloudWatchLogging"
   path        = "/"
   description = "IAM policy for logging from a lambda"
-  policy = file("./cloudwatch_policy.json")
+  policy      = file("./cloudwatch_policy.json")
 }
 
 resource "aws_iam_role_policy_attachment" "lambda_cloudwatch_logs" {
@@ -99,10 +99,10 @@ resource "aws_iam_role_policy_attachment" "lambda_cloudwatch_logs" {
 }
 
 resource "aws_iam_policy" "network_interfaces" {
-  name = "SmokeTestAllowManagingNetworkInterfaces"
+  name        = "SmokeTestAllowManagingNetworkInterfaces"
   path        = "/"
   description = "IAM policy for managing network interfaces"
-  policy = file("./network_interface_policy.json")
+  policy      = file("./network_interface_policy.json")
 }
 
 resource "aws_iam_role_policy_attachment" "network_interfaces" {
@@ -111,13 +111,13 @@ resource "aws_iam_role_policy_attachment" "network_interfaces" {
 }
 
 resource "aws_iam_policy" "retrieve_ssm_secrets" {
-  name = "SmokeTestAllowGetParameters"
+  name        = "SmokeTestAllowGetParameters"
   path        = "/"
   description = "IAM policy to allow lambda to retrieve secrets from /smoke-tests/ path"
   policy = templatefile("./ssm_policy.json", {
-      account: data.aws_caller_identity.current.account_id
-      region: data.aws_region.current.name,
-      master_key_arn: aws_kms_key.smoke_tests_master_key.arn
+    account : data.aws_caller_identity.current.account_id
+    region : data.aws_region.current.name,
+    master_key_arn : aws_kms_key.smoke_tests_master_key.arn
   })
 }
 
@@ -127,7 +127,7 @@ resource "aws_iam_role_policy_attachment" "retrieve_ssm_secrets" {
 }
 
 resource "aws_kms_key" "smoke_tests_master_key" {
-  description             = "Master key used by smoke test lambda"
+  description = "Master key used by smoke test lambda"
 }
 
 
