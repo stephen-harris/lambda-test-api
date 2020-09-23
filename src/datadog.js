@@ -9,7 +9,7 @@ module.exports.reportToDatadog = async (stats) =>
     }
 
     await request.post({
-        uri: `https://api.datadoghq.eu/api/v1/series?api_key=${process.env.DD_CLIENT_API_KEY}`,
+        uri: `https://api.datadoghq.eu/api/v1/series?api_key=${process.env.SSM_DD_CLIENT_API_KEY}`,
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
             "series": [

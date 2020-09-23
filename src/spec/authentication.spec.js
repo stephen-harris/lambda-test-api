@@ -8,8 +8,8 @@ describe("Testing authenticated calls", function() {
     before(function () {
         // This endpoint just returns what we send it,
         // we'll pretend we're getting back an access token (environment var PASSWORD should be set to "foobar")
-        return chakram.post("https://httpbin.org/anything", {
-            token: process.env.PASSWORD
+        return chakram.post("http://httpbin.org/anything", {
+            token: process.env.SSM_PASSWORD
         }).then((response) => {
             accessToken = JSON.parse(response.body.data).token;
             return accessToken;
