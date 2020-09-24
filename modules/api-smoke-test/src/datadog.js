@@ -21,7 +21,7 @@ module.exports.reportToDatadog = async (stats) =>
                     "" + stats.passes
                   ]
                 ],
-                "tags": process.env.DD_TAGS.split(" ")
+                "tags": process.env.DD_TAGS ? process.env.DD_TAGS.split(" ") : []
               },
               {
                 "metric": `lambda-smoke-test.${process.env.SERVICE}.fail`,
@@ -31,7 +31,7 @@ module.exports.reportToDatadog = async (stats) =>
                     "" + stats.failures
                   ]
                 ],
-                "tags": process.env.DD_TAGS.split(" ")
+                "tags": process.env.DD_TAGS ? process.env.DD_TAGS.split(" ") : []
               }
             ]
         })
