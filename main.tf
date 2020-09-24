@@ -7,6 +7,7 @@ module "availability_checker" {
   dd_tags = [
       "env:nonprod"
   ]
+  enable = true #defaults to true, can be used to disable tests from running automatically
 }
 
 variable "vpc_id" {

@@ -23,3 +23,8 @@ variable "dd_tags" {
   type = list(string)
   default = []
 }
+
+variable "enable" {
+  type = bool
+  default = true
+}
