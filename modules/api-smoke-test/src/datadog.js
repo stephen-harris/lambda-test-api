@@ -35,8 +35,5 @@ module.exports.reportToDatadog = async (stats) =>
               }
             ]
         })
-    }, function(err, response) {
-      console.log(err);
-      console.log(response);
     });
 };
