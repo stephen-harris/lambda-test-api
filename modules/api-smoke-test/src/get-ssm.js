@@ -7,7 +7,7 @@ const loadSecrets = () =>
 
     ssm.getParametersByPath(
       {
-        Path: '/smoke-tests',
+        Path: '/smoke-tests/' + process.env.SERVICE,
         Recursive: true,
         WithDecryption: true
       },
@@ -18,8 +18,7 @@ const loadSecrets = () =>
         } else {
           data.Parameters.map((param) => {
             var name = "SSM_" + param.Name.split("/").pop().toUpperCase()
-            console.log(param);
-            console.log("Export " + name + " with value " + param.Value);
+            console.log("Export " + name);
             process.env[name] = param.Value;
           });
            

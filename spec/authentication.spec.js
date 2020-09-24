@@ -19,7 +19,7 @@ describe("Testing authenticated calls", function() {
     before(function () {
         // We can use this token to make a call to anuthenticated endpoint.
         // this fails if the token is empty
-        apiResponse = chakram.get("https://httpbin.org/bearer", {
+        apiResponse = chakram.get("http://httpbin.org/bearer", {
             'auth': {
                 'bearer': accessToken
             }

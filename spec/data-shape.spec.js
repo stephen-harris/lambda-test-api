@@ -5,7 +5,7 @@ describe("Testing data shape", function() {
     var apiResponse;
 
     before(function () {
-        apiResponse = chakram.get("https://httpbin.org/uuid")
+        apiResponse = chakram.get("http://httpbin.org/uuid")
         return apiResponse;
     });
 

@@ -8,8 +8,8 @@
           "ssm:GetParametersByPath"
         ],
         "Resource": [
-          "arn:aws:ssm:${region}:${account}:parameter/smoke-tests",
-          "arn:aws:ssm:${region}:${account}:parameter/smoke-tests/*"
+          "arn:aws:ssm:${region}:${account}:parameter/smoke-tests/${service}",
+          "arn:aws:ssm:${region}:${account}:parameter/smoke-tests/${service}/*"
         ],
         "Effect": "Allow"
       },
