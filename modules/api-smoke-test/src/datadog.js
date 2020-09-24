@@ -14,7 +14,7 @@ module.exports.reportToDatadog = async (stats) =>
         body: JSON.stringify({
             "series": [
               {
-                "metric": `${process.env.METRIC_NAME}.success`,
+                "metric": `lambda-smoke-test.${process.env.SERVICE}.success`,
                 "points": [
                   [
                     "" + Math.round(new Date().getTime()/1000),
@@ -24,7 +24,7 @@ module.exports.reportToDatadog = async (stats) =>
                 "tags": process.env.DD_TAGS.split(" ")
               },
               {
-                "metric": `${process.env.METRIC_NAME}.fail`,
+                "metric": `lambda-smoke-test.${process.env.SERVICE}.fail`,
                 "points": [
                   [
                     "" + Math.round(new Date().getTime()/1000),

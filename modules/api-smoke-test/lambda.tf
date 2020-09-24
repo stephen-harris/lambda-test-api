@@ -44,7 +44,6 @@ resource "aws_lambda_function" "smoke_test" {
   environment {
     variables = {
       SERVICE = var.service,
-      METRIC_NAME = "lambda-smoke-test.${var.service}"
       DD_TAGS = join(" ", toset(concat([
         "service:${var.service}"
       ], var.dd_tags)))
